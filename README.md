@@ -3,7 +3,8 @@
 ## How to run
 
 ```sh
-# Step 1: Download finetuned model from this link and upload it to your drive: https://drive.google.com/file/d/1DMYc8w1xx3JSLorXSBAHD7Q1zUhdPNOJ/view?usp=drive_link
+# Step 1: Download finetuned model from this link and upload it to your drive:
+https://drive.google.com/file/d/1DMYc8w1xx3JSLorXSBAHD7Q1zUhdPNOJ/view?usp=drive_link
 
 # Step 2: Open fastapi_chatbot.ipynb in Google Colab.
 
