@@ -22,13 +22,37 @@ if not os.path.exists(extract_dir):
 else:
     print(f"Directory already exists: {extract_dir}. Skipping extraction.")
 ```
-## Step 4: Set Huggingface Token (HF_TOKEN) and NGROK Token (NGROK_AUTH_TOKEN) in your Colab
+## Step 4: Set Google API Token (GOOGLE_API_TOKEN) and NGROK Token (NGROK_AUTH_TOKEN) in your Colab
 You can create them follow this link:
 
-Huggingface Token: https://huggingface.co/docs/hub/en/security-tokens
+Google API Token: https://aistudio.google.com/app/apikey
 
 NGROK Token: https://dashboard.ngrok.com/get-started/your-authtoken
 
-Then pass them to HF_TOKEN and NGROK_AUTH_TOKEN you create in Colab
+Then pass them to GOOGLE_API_TOKEN and NGROK_AUTH_TOKEN you create in Colab
 
-## Step 5: Run all cells
+## Step 5: Set NGROK Domain
+You can create NGROK Domain follow this link:
+
+NGROK Domain: https://dashboard.ngrok.com/domains
+
+Then in cell Run, pass your domain to this line:
+```sh
+public_url = ngrok.connect(addr=8000, domain="your-domain")
+print("Public URL:", public_url)
+```
+
+## Step 6: Run all cells
+
+## Connect to Backend
+In qms_backend project, on ChatbotService.cs:
+Pass your API URL to this line:
+```sh
+public ChatbotService(QmsDbContext dbContext, HttpClient httpClient, IDocumentManagement documentManagement)
+{
+    _dbContext = dbContext;
+    _httpClient = httpClient;
+    _chatbotApiUrl = "https://{your-domain}/";
+    _documentManagement = documentManagement;
+}
+```
